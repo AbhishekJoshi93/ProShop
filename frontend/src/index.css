@@ -1,0 +1,15 @@
+body {
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.rating span {
+  margin: 0.05rem;
+}
+
+h3 {
+  padding: 1rem 0;
+}
