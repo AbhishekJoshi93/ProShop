@@ -10,7 +10,7 @@ const authUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email })
 
-  if (User && (await user.matchPassword(password))) {
+  if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
       name: user.name,
@@ -32,9 +32,9 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const userExists = await User.findOne({ email })
 
-  if (User && (await user.matchPassword(password))) {
-    res.status(400)
-    throw new Error('User already exists')
+  if (userExists) {
+    res.status(401)
+    throw new Error('Email already registered')
   }
 
   const user = await User.create({
@@ -52,7 +52,7 @@ const registerUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     })
   } else {
-    res.status(400)
+    res.status(401)
     throw new Error('Invalid user data')
   }
 })
