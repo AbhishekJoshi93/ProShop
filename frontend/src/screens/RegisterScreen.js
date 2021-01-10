@@ -59,6 +59,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder='Enter email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete='username'
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='password'>
@@ -68,6 +69,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder='Enter password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete='new-password'
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
@@ -77,6 +79,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder='Confirm password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            autoComplete='new-password'
           ></Form.Control>
         </Form.Group>
         <Button type='submit' variant='primary'>
